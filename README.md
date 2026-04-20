@@ -9,7 +9,7 @@ Inspired by [Kimaki](https://github.com/remorses/kimaki) for Discord.
 ## Quick start
 
 ```
-npx -y @samlader/slackaki@latest
+npx -y github:samlader/slackaki
 ```
 
 Or from source:
@@ -21,7 +21,7 @@ node bin/slackaki.js setup   # setup wizard
 node bin/slackaki.js         # start the bridge
 ```
 
-The CLI walks you through installing the Slack app, pasting tokens, and linking your first channel to a project directory.
+The CLI walks you athrough installing the Slack app, pasting tokens, and linking your first channel to a project directory.
 
 ## Requirements
 
