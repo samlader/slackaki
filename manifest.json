@@ -1,0 +1,101 @@
+{
+  "display_information": {
+    "name": "Slackaki",
+    "description": "Iron Man's Jarvis for coding agents, inside Slack.",
+    "background_color": "#1f2933",
+    "long_description": "Slackaki connects Slack to OpenCode, a coding agent that runs on your machine. Each channel is linked to a project directory; messages in that channel open a thread and start an AI session that can read, edit, and run code."
+  },
+  "features": {
+    "bot_user": {
+      "display_name": "Slackaki",
+      "always_online": true
+    },
+    "slash_commands": [
+      { "command": "/session", "description": "Start a new session with an initial prompt", "usage_hint": "<prompt>", "should_escape": false, "url": "https://slack.com/" },
+      { "command": "/background", "description": "Run a session in the background; DM when done or input needed", "usage_hint": "<prompt>", "should_escape": false, "url": "https://slack.com/" },
+      { "command": "/schedule", "description": "Schedule a recurring task (natural language or cron)", "usage_hint": "<when> | <prompt>", "should_escape": false, "url": "https://slack.com/" },
+      { "command": "/schedules", "description": "List scheduled tasks in this channel", "should_escape": false, "url": "https://slack.com/" },
+      { "command": "/unschedule", "description": "Remove a scheduled task by id", "usage_hint": "<id>", "should_escape": false, "url": "https://slack.com/" },
+      { "command": "/resume", "description": "Resume a previous session", "usage_hint": "<session>", "should_escape": false, "url": "https://slack.com/" },
+      { "command": "/abort", "description": "Stop the current running session", "should_escape": false, "url": "https://slack.com/" },
+      { "command": "/add-project", "description": "Link a channel to an existing OpenCode project", "usage_hint": "<project>", "should_escape": false, "url": "https://slack.com/" },
+      { "command": "/create-new-project", "description": "Create a new project folder and start a session", "usage_hint": "<name>", "should_escape": false, "url": "https://slack.com/" },
+      { "command": "/new-worktree", "description": "Create a git worktree and start a session", "usage_hint": "<name>", "should_escape": false, "url": "https://slack.com/" },
+      { "command": "/merge-worktree", "description": "Merge worktree branch into the default branch", "should_escape": false, "url": "https://slack.com/" },
+      { "command": "/model", "description": "Change the AI model for this channel or session", "should_escape": false, "url": "https://slack.com/" },
+      { "command": "/agent", "description": "Change the agent for this channel or session", "should_escape": false, "url": "https://slack.com/" },
+      { "command": "/share", "description": "Generate a public URL to share the current session", "should_escape": false, "url": "https://slack.com/" },
+      { "command": "/fork", "description": "Fork the session from a previous message", "should_escape": false, "url": "https://slack.com/" },
+      { "command": "/queue", "description": "Queue a message to send after the current response finishes", "usage_hint": "<message>", "should_escape": false, "url": "https://slack.com/" },
+      { "command": "/clear-queue", "description": "Clear all queued messages in this thread", "should_escape": false, "url": "https://slack.com/" },
+      { "command": "/undo", "description": "Undo the last assistant message (revert file changes)", "should_escape": false, "url": "https://slack.com/" },
+      { "command": "/redo", "description": "Redo the last undone message", "should_escape": false, "url": "https://slack.com/" },
+      { "command": "/screenshare", "description": "Share your screen via VNC tunnel (auto-stops after 1h)", "should_escape": false, "url": "https://slack.com/" },
+      { "command": "/screenshare-stop", "description": "Stop screen sharing", "should_escape": false, "url": "https://slack.com/" },
+      { "command": "/upgrade-and-restart", "description": "Upgrade Slackaki to latest and restart the bridge", "should_escape": false, "url": "https://slack.com/" }
+    ],
+    "shortcuts": [
+      {
+        "name": "Fork from here",
+        "type": "message",
+        "callback_id": "fork_from_here",
+        "description": "Start a new session branched from this message"
+      },
+      {
+        "name": "Include in session",
+        "type": "message",
+        "callback_id": "include_in_session",
+        "description": "Add this message as extra context to the current session"
+      },
+      {
+        "name": "New Slackaki session",
+        "type": "global",
+        "callback_id": "new_session",
+        "description": "Pick a project and start a new session"
+      }
+    ]
+  },
+  "oauth_config": {
+    "scopes": {
+      "bot": [
+        "app_mentions:read",
+        "channels:history",
+        "channels:join",
+        "channels:read",
+        "chat:write",
+        "chat:write.public",
+        "commands",
+        "files:read",
+        "files:write",
+        "groups:history",
+        "groups:read",
+        "im:history",
+        "im:read",
+        "im:write",
+        "mpim:history",
+        "mpim:read",
+        "reactions:read",
+        "reactions:write",
+        "users:read"
+      ]
+    }
+  },
+  "settings": {
+    "event_subscriptions": {
+      "bot_events": [
+        "app_mention",
+        "message.channels",
+        "message.groups",
+        "message.im",
+        "message.mpim",
+        "reaction_added"
+      ]
+    },
+    "interactivity": {
+      "is_enabled": true
+    },
+    "org_deploy_enabled": false,
+    "socket_mode_enabled": true,
+    "token_rotation_enabled": false
+  }
+}

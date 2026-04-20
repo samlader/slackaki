@@ -1,0 +1,38 @@
+{
+  "name": "slackaki",
+  "version": "0.1.0",
+  "description": "Iron Man's Jarvis for coding agents, inside Slack.",
+  "type": "module",
+  "bin": {
+    "slackaki": "bin/slackaki.js"
+  },
+  "main": "dist/cli.js",
+  "files": [
+    "bin",
+    "dist",
+    "SPEC.md",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/cli.ts",
+    "start": "node dist/cli.js",
+    "prepublishOnly": "npm run build"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@opencode-ai/sdk": "^0.15.0",
+    "@slack/bolt": "^4.4.0",
+    "commander": "^12.1.0",
+    "cron-parser": "^4.9.0",
+    "prompts": "^2.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/prompts": "^2.4.9",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  }
+}
