@@ -1,6 +1,6 @@
 # Slackaki
 
-Slackaki is a app that lets you control [OpenCode](https://opencode.ai) sessions from Slack.
+Slackaki is an app that lets you control [OpenCode](https://opencode.ai) sessions from Slack.
 
 Send a message in a Slack channel to spawn an agent to run & edit code on your machine or server.
 
